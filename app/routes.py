@@ -1,3 +1,8 @@
+# Simon Dutton
+# due April 12th, 2023
+# Pokemon Search
+# Lets a user search for a Pokemon and returns a card with that Pokemon
+
 from flask import render_template, request, redirect, url_for
 from app import app
 from .forms import PokemonForm # IMPORT ANY FORMS
