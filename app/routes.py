@@ -37,7 +37,7 @@ def search_page():
     if request.method == 'POST':
         if form.validate():
             pokemon_name = form.pokemon_name.data
-            poke_dict = find_poke(pokemon_name)
+            poke_dict = find_poke(pokemon_name.lower())
             pokemon = Pokemon(poke_dict['name'], poke_dict['hp_base_stat'], poke_dict['defense_base_stat'], poke_dict['attack_base_stat'], poke_dict['photo'], poke_dict['abilities'])
             
             #ADDED THIS SO THAT USER CAN ONLY INPUT ITEM ONCE INTO THE DB
