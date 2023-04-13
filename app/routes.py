@@ -40,7 +40,11 @@ def search_page():
             poke_dict = find_poke(pokemon_name)
             pokemon = Pokemon(poke_dict['name'], poke_dict['hp_base_stat'], poke_dict['defense_base_stat'], poke_dict['attack_base_stat'], poke_dict['photo'], poke_dict['abilities'])
             
-            pokemon.save_to_db()
+            #ADDED THIS SO THAT USER CAN ONLY INPUT ITEM ONCE INTO THE DB
+            pokemon_already_in_db = Pokemon.query.filter_by(name=pokemon_name.title()).first()
+            if not pokemon_already_in_db:
+                # only add to the db if not already in there
+                pokemon.save_to_db()
 
             properties = {
                 'name' : pokemon_name,
